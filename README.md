@@ -388,7 +388,7 @@ cd AcademiaX
 
 # Run everything
 docker compose up --build
-check on :-  http://127.0.0.1
+check on :-  http://localhost:5173
 ```
 
 #### 🔸 Backend is working:
