@@ -1,7 +1,8 @@
-# 🎓 AcademiaX - School Management System
+
 
 <div align="center">
 
+# 🎓 AcademiaX - School Management System
 
 **A Production-Ready, Enterprise-Grade School Management SaaS Platform**
 
@@ -10,6 +11,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-5.0-lightgrey.svg)](https://expressjs.com/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Latest-brightgreen.svg)](https://www.mongodb.com/)
+[![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38bdf8.svg)](https://tailwindcss.com/)
 
 [Features](#-features) • [Tech Stack](#-tech-stack) • [Quick Start](#-quick-start) • [API Docs](#-api-endpoints) • [Demo](#-demo-credentials)
@@ -167,9 +169,146 @@ Originally developed as an extended solution beyond a technical assignment, Acad
 │ └──────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────┘
 ```
+## 🐳 Docker Architecture
 
+```bash
+        ┌───────────────┐
+        │   Browser     │
+        │ http://localhost │
+        └───────┬───────┘
+                │
+        ┌───────▼────────┐
+        │    Nginx       │
+        │  (Reverse Proxy)│
+        └───────┬────────┘
+        │                │
+┌───────▼───────┐ ┌──────▼───────┐
+│  Frontend     │ │   Backend     │
+│ (React + Vite)│ │ (Node + API)  │
+└───────────────┘ └──────┬────────┘
+                         │
+                 ┌───────▼────────┐
+                 │   MongoDB       │
+                 │ (Atlas / Local) │
+                 └────────────────┘
+```
 ---
-
+## Project Structure
+```bash
+AcademiaX/
+│
+├── 🐳 docker-compose.yml
+├── 🐳 nginx.conf
+├── 📄 README.md
+│
+├── backend/
+│   ├── controllers/
+│   │   ├── auth.js
+│   │   ├── dashboard.js
+│   │   ├── students.js
+│   │   ├── tasks.js
+│   │   └── users.js
+│   │
+│   ├── middleware/
+│   │   ├── auth.js
+│   │   ├── errorHandler.js
+│   │   ├── notFound.js
+│   │   └── validation.js
+│   │
+│   ├── models/
+│   │   ├── Student.js
+│   │   ├── Task.js
+│   │   └── User.js
+│   │
+│   ├── routes/
+│   │   ├── auth.js
+│   │   ├── dashboard.js
+│   │   ├── students.js
+│   │   ├── tasks.js
+│   │   └── users.js
+│   │
+│   ├── utils/
+│   │   └── jwt.js
+│   │
+│   ├── 🐳 Dockerfile
+│   ├── .dockerignore
+│   ├── .env
+│   ├── .gitignore
+│   ├── package.json
+│   ├── package-lock.json
+│   └── server.js
+│
+├── frontend/
+│   ├── public/
+│   │   ├── AcademiaX-Logo.png
+│   │   └── AcademiaX-LogoTitle.png
+│   │
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Button.jsx
+│   │   │   ├── Header.jsx
+│   │   │   ├── Input.jsx
+│   │   │   ├── Modal.jsx
+│   │   │   ├── ProtectedRoute.jsx
+│   │   │   └── Sidebar.jsx
+│   │   │
+│   │   ├── context/
+│   │   │   └── AuthContext.jsx
+│   │   │
+│   │   ├── layouts/
+│   │   │   ├── AuthLayout.jsx
+│   │   │   └── Layout.jsx
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Dashboard/
+│   │   │   │   ├── Admin/
+│   │   │   │   │   └── AdminDashboard.jsx
+│   │   │   │   └── Teacher/
+│   │   │   │       └── TeacherDashboard.jsx
+│   │   │   │
+│   │   │   ├── Users/
+│   │   │   │   └── User.jsx
+│   │   │   │
+│   │   │   ├── auth/
+│   │   │   │   ├── Login.jsx
+│   │   │   │   └── Register.jsx
+│   │   │   │
+│   │   │   ├── students/
+│   │   │   │   ├── CreateStudent.jsx
+│   │   │   │   ├── StudentDetail.jsx
+│   │   │   │   └── Students.jsx
+│   │   │   │
+│   │   │   ├── tasks/
+│   │   │   │   ├── CreateTask.jsx
+│   │   │   │   ├── TaskDetail.jsx
+│   │   │   │   └── Tasks.jsx
+│   │   │   │
+│   │   │   ├── Profile.jsx
+│   │   │   ├── Settings.jsx
+│   │   │   └── page.jsx
+│   │   │
+│   │   ├── services/
+│   │   │   └── api.js
+│   │   │
+│   │   ├── store/
+│   │   │   └── authStore.js
+│   │   │
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   │
+│   ├── 🐳 Dockerfile
+│   ├── .dockerignore
+│   ├── .env
+│   ├── .gitignore
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── vite.config.js
+│   ├── tailwind.config.js
+│   ├── eslint.config.js
+│   └── jsconfig.json
+```
 ## 🚦 Quick Start
 
 ### Prerequisites
@@ -181,9 +320,11 @@ Ensure you have the following installed:
 - **npm** or **yarn** - Comes with Node.js
 - **Git** - [Download](https://git-scm.com/)
 
-### Installation Guide
+## Installation Guide
 
-#### 1. Clone the Repository
+## 1. Option - 2
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Bhawana0218/AcademiaX.git
@@ -236,6 +377,32 @@ cd frontend
 npm run dev
 ```
 
+## 2. Option - 2 
+
+### 1. Run the full application
+
+```bash
+# Clone repo
+git clone https://github.com/Bhawana0218/AcademiaX.git
+cd AcademiaX
+
+# Run everything
+docker compose up --build
+check on :-  http://127.0.0.1
+```
+
+#### 🔸 Backend is working:
+Connected to MongoDB 
+Server running on port 5000 
+#### 🔸 Frontend is working:
+nginx started 
+
+### 2. Stop containers
+
+```bash
+docker compose down
+```
+
 ### 7. Access the Application
 🌐 Frontend: http://localhost:3000
 🔌 Backend API: http://localhost:5000
@@ -244,22 +411,24 @@ npm run dev
 
 ## ⚡ Performance Optimizations
 ### Backend Optimizations
-
+```bash
 Database Indexing: Implemented strategic indexing on frequently queried fields to improve read performance and reduce query latency.
 Pagination: Server-side pagination using limit/skip to efficiently handle large datasets.
 Query Optimization: Optimized database queries with selective field projection to minimize payload size and improve response time.
 Caching Strategy: Designed with Redis-ready architecture to support high-performance response caching.
 Compression: Enabled Gzip compression to reduce response payload size and improve network efficiency.
 Connection Pooling: Configured MongoDB connection pooling to efficiently manage database connections and improve scalability.
+```
 
 ### Frontend Optimizations
+```bash
 Code Splitting: Implemented route-based lazy loading to reduce initial bundle size and improve load time.
 Bundle Optimization: Utilized tree shaking and production minification to eliminate unused code and optimize bundle size.
 Image Optimization: Applied responsive image handling with lazy loading to improve rendering performance.
 Memoization: Used React.memo, useMemo, and useCallback to prevent unnecessary re-renders and optimize expensive computations.
 Input Debouncing: Implemented debounced search inputs (300ms) to reduce unnecessary API calls and improve UX.
 Virtual Scrolling: Architecture prepared for virtualized rendering to efficiently handle large lists and datasets.
-
+```
 
 
 ## 📞 Support & Contact

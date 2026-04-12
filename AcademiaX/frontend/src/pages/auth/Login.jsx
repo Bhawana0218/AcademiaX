@@ -118,6 +118,36 @@ const Login = () => {
       Sign in
     </Button>
   </form>
+
+  <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-2xl border border-gray-200">
+      <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
+        Demo Credentials
+      </h2>
+
+      <div className="space-y-4">
+        {/* Admin */}
+        <div className="p-4 bg-gray-50 rounded-xl border">
+          <p className="font-semibold text-gray-700">Admin</p>
+          <p className="text-sm text-gray-600">
+            Email: <span className="font-medium">bhawanabishtbhanu1205@gmail.com</span>
+          </p>
+          <p className="text-sm text-gray-600">
+            Password: <span className="font-medium">Bhanu@123</span>
+          </p>
+        </div>
+
+        {/* Teacher */}
+        <div className="p-4 bg-gray-50 rounded-xl border">
+          <p className="font-semibold text-gray-700">Teacher</p>
+          <p className="text-sm text-gray-600">
+            Email: <span className="font-medium">test@gmail.com</span>
+          </p>
+          <p className="text-sm text-gray-600">
+            Password: <span className="font-medium">Test@123</span>
+          </p>
+        </div>
+      </div>
+    </div>
 </div>
   )
 }
