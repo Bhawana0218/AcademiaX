@@ -2,7 +2,6 @@
 
 <div align="center">
 
-![MERN Stack](https://image.qwenlm.ai/public_source/e9b5421b-4617-4b60-bcb5-3d23e25a3b8e/1fbf67a4b-8313-4486-a1c6-b1e0045f9cb29992.png)
 
 **A Production-Ready, Enterprise-Grade School Management SaaS Platform**
 
@@ -95,8 +94,6 @@ Originally developed as an extended solution beyond a technical assignment, Acad
 <div align="center">
 
 ### Full Stack Architecture
-
-![Tech Stack](https://image.qwenlm.ai/public_source/e9b5421b-4617-4b60-bcb5-3d23e25a3b8e/2fbf67a4b-8313-4486-a1c6-b1e0045f9cb24243.png)
 
 </div>
 
@@ -292,7 +289,6 @@ Attendance tracking
 Grade reports
 Payment integration
 
-```bash 
 <div align="center">
 
 Made with ❤️ using the MERN Stack
