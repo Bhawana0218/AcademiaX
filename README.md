@@ -433,9 +433,8 @@ Virtual Scrolling: Architecture prepared for virtualized rendering to efficientl
 
 ## 📞 Support & Contact
 Need help or have questions?
-📧 Email: support@academiax.com
-📱 Phone: +1 (555) 123-4567
-💬 Discord: Join our community
+📧 Email: bhawana1205bisht1802@gmail.com
+📱 Phone: 7078807457
 📚 Documentation: View docs
 
 
